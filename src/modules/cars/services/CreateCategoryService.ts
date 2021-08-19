@@ -1,19 +1,16 @@
-import { response } from "express";
-import { CategoriesRepository } from "../repositories/CategoriesRepository"
+import { ICategoriesRepository } from "../repositories/ICategoriesRepository"
 
+// DTO -> Data transfer object 
 interface IRequest{
     name: string;
     description: string;
 }
 
 class CreateCategoryService{
-    constructor(private categoriesRepository: CategoriesRepository) {
+    constructor(private categoriesRepository: ICategoriesRepository) {};
 
-    };
-
+    // : -> this means return something
     execute({ name, description }: IRequest): void{
-        //const categoriesRepository = new CategoriesRepository();
-
         const categoryAlreadyExists = this.categoriesRepository.findByName(name);
 
         if(categoryAlreadyExists) {
