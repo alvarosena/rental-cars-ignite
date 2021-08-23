@@ -1,7 +1,7 @@
 // The repositories serve for the management of tables in the database
 import { response } from "express";
-import { Category } from "../model/Category"
-import { ICategoriesRepository, ICreateCategoryDTO } from "./ICategoriesRepository";
+import { Category } from "../../model/Category"
+import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesRepository";
 
 // singleton
 
