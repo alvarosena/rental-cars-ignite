@@ -1,12 +1,14 @@
 import express, { json } from 'express';
-import { categoriesRoutes } from './routes/categories.routes';
-import { specificationsRoutes } from './routes/Specifications.routes';
 import { router } from './routes';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger.json';
 
 const app = express();
 
 app.use(express.json());
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
+
 app.use(router);
 
-app.listen(8080, () => console.log("Sever is running on port 8080"));
+app.listen(8080, () => console.log("Sever is running on http://localhost:8080"));
