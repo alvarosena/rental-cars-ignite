@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "RentalX techs Documentation",
+        "title": "RentX techs Documentation",
         "description": "This is an API Rent",
         "version": "1.0.0",
         "contact": {
@@ -9,7 +9,7 @@
         }
     },
     "paths": {
-        "categories": {
+        "/categories": {
             "post": {
                 "tags": ["Category"],
                 "summary": "Create a category",
@@ -70,7 +70,71 @@
                     }
                 }
             }
+        },
+        "/categories/import": {
+            "post": {
+                "tags": ["Category"],
+                "summary": "Upload new category",
+                "description": "Upload new category",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/specifications": {
+            "post": {
+                "tags": ["Specifications"],
+                "summary": "Create a specification",
+                "description": "Create a new specfification",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definations/Specification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Specification aready exists"
+                    }
+                }
+            }
         }
         
+    },
+    "definations": {
+        "Specification": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "descripiton": {
+                    "type": "string"
+                }
+            }
+        }
     }
 }
