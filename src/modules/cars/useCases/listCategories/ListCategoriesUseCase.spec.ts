@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "../../../../shared/errors/AppError";
 import { CategoriesRepositoriesInMemory } from "../../repositories/implementations/in-memory/CategoriesRepositoriesInMemory";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
