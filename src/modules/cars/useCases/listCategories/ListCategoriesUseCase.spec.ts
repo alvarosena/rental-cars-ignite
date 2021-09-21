@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import { AppError } from "../../../../shared/errors/AppError";
-import { CategoriesRepositoriesInMemory } from "../../repositories/implementations/in-memory/CategoriesRepositoriesInMemory";
+import { CategoriesRepositoriesInMemory } from "../../infra/typeorm/repositories/implementations/in-memory/CategoriesRepositoriesInMemory";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
 let listCategoriesUseCase: ListCategoriesUseCase

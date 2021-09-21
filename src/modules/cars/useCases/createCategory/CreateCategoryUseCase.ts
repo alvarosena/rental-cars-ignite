@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../shared/errors/AppError";
 
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository"
+import { ICategoriesRepository } from "../../infra/typeorm/repositories/ICategoriesRepository"
 
 // DTO -> Data transfer object 
 interface IRequest{

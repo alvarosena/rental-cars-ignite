@@ -1,4 +1,4 @@
-import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
+import { CategoriesRepository } from "../../infra/typeorm/repositories/implementations/CategoriesRepository";
 import { ListCategoriesController } from "./listCategoriesController";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 

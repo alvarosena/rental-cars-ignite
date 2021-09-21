@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { UsersRepositoryInMemory } from "../../repositories/implementations/in-memory/UsersRepositoryInMemory";
+import { UsersRepositoryInMemory } from "../../infra/typeorm/repositories/implementations/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { AuthenticateUserUseCase } from "../authenticateUser/AuthenticateUserUseCase";
 import { AppError } from "../../../../shared/errors/AppError";

@@ -1,5 +1,5 @@
 import { AppError } from "../../../../shared/errors/AppError";
-import { SpecificationRepositoryInMemory } from "../../repositories/implementations/in-memory/SpecificationRepositoryInMemory";
+import { SpecificationRepositoryInMemory } from "../../infra/typeorm/repositories/implementations/in-memory/SpecificationRepositoryInMemory";
 import { CreateSpecificationUseCase } from "../createSpecification/CreateSpecificationUseCase";
 
 let specificationRepositoryInMemory: SpecificationRepositoryInMemory;
