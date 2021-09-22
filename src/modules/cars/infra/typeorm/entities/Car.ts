@@ -31,7 +31,7 @@ class Car{
     @ManyToOne(() => Category)
     @JoinColumn({ name: "category_id" })
     category: Category;
-
+  
     @Column()
     category_id: string;
 
