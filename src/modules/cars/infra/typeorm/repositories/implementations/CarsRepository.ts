@@ -3,14 +3,14 @@ import { getRepository, Repository } from "typeorm"
 import { ICarRepository } from "../ICarRepository";
 import { ICarRepositoryDTO } from "../ICarRepository";
 
-class CarsRepository implements ICarRepository{
+class CarsRepository implements ICarRepository {
     private repository: Repository<Car>
 
     constructor() {
         this.repository = getRepository(Car);
     }
 
-    async create({name,
+    async create({ name,
         description,
         daily_rate,
         license_plate,
@@ -42,23 +42,28 @@ class CarsRepository implements ICarRepository{
 
     async findAvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
         const carsQuerys = await this.repository
-        .createQueryBuilder("c")
-        .where("available = :available", { available: true })
+            .createQueryBuilder("c")
+            .where("available = :available", { available: true })
 
-        if(brand) {
+        if (brand) {
             carsQuerys.andWhere("c.brand = :brand", { brand })
         }
 
-        if(name) {
+        if (name) {
             carsQuerys.andWhere("c.name = :name", { name })
         }
 
-        if(category_id) {
+        if (category_id) {
             carsQuerys.andWhere("c.category_id = :category_id", { category_id })
         }
 
         const cars = await carsQuerys.getMany();
         return cars;
+    }
+
+    async findById(id: string): Promise<Car> {
+        const car = await this.repository.findOne(id);
+        return car;
     }
 }
 
